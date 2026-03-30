@@ -17,7 +17,7 @@ mkdir -p .pi/extensions
 cp -r extensions/pi-speaker .pi/extensions/
 
 # 方式 2：通过 pi package
-pi install git:/path/to/pi-speaker
+pi install https://github.com/mlj1991/pi-speaker
 ```
 
 ## 使用
