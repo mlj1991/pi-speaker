@@ -1,0 +1,10 @@
+{
+  "name": "pi-speaker",
+  "version": "0.1.0",
+  "description": "Screen reader extension for pi-coding-agent",
+  "license": "MIT",
+  "keywords": ["pi-package", "pi-extension", "screen-reader", "tts"],
+  "pi": {
+    "extensions": ["./extensions/pi-speaker/index.ts"]
+  }
+}
