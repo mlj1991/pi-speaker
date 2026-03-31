@@ -47,6 +47,12 @@ const DEFAULT_CONFIG: SpeakerConfig = {
 };
 
 const MODE_CYCLE: SpeakerMode[] = ["off", "summary", "full"];
+const SHORTCUTS = {
+  toggle: "ctrl+shift+s",
+  cycleMode: "alt+shift+s",
+  stop: "ctrl+.",
+  repeat: "alt+r",
+} as const;
 
 class SpeechQueue {
   private queue: { text: string; config: SpeakerConfig }[] = [];
@@ -298,7 +304,7 @@ export default function (pi: ExtensionAPI) {
     }
   });
 
-  pi.registerShortcut("ctrl+s", {
+  pi.registerShortcut(SHORTCUTS.toggle, {
     description: "Toggle pi-speaker",
     handler: async (ctx) => {
       config.mode = config.mode === "off" ? lastActiveMode : "off";
@@ -308,7 +314,7 @@ export default function (pi: ExtensionAPI) {
     },
   });
 
-  pi.registerShortcut("alt+s", {
+  pi.registerShortcut(SHORTCUTS.cycleMode, {
     description: "Cycle pi-speaker mode",
     handler: async (ctx) => {
       const currentIndex = MODE_CYCLE.indexOf(config.mode);
@@ -320,7 +326,7 @@ export default function (pi: ExtensionAPI) {
     },
   });
 
-  pi.registerShortcut("ctrl+.", {
+  pi.registerShortcut(SHORTCUTS.stop, {
     description: "Stop speaking",
     handler: async (ctx) => {
       speaker.stop();
@@ -328,7 +334,7 @@ export default function (pi: ExtensionAPI) {
     },
   });
 
-  pi.registerShortcut("alt+r", {
+  pi.registerShortcut(SHORTCUTS.repeat, {
     description: "Repeat last speech",
     handler: async (ctx) => {
       await speaker.repeat();

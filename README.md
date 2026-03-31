@@ -24,8 +24,8 @@ pi install https://github.com/mlj1991/pi-speaker
 
 ### 快捷键（默认）
 
-- `ctrl+s`：开关读屏
-- `alt+s`：循环模式（off → summary → full）
+- `ctrl+shift+s`：开关读屏
+- `alt+shift+s`：循环模式（off → summary → full）
 - `ctrl+.`：停止朗读
 - `alt+r`：重播
 
